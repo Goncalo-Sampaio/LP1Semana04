@@ -9,7 +9,8 @@ namespace BetterDecorator
     class Program
     {
         /// <summary>
-        /// The Main method that will call the Decor method
+        /// The Main method that will call the Decor method depending on the
+        /// args inserted by the user
         /// </summary>
         /// <param name="args"></param>
         static void Main(string[] args)
@@ -46,7 +47,10 @@ namespace BetterDecorator
 
             return $"{decor} {s} {decor}";
         }
-
+        /// <summary>
+        /// Method that will be called in case the user didn't input any args
+        /// </summary>
+        /// <returns></returns>
         private static string Decor(){
             return Decor("User did not specify args!", '=', 3);
         }
