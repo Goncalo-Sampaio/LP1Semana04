@@ -14,10 +14,17 @@ namespace BetterDecorator
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            //parsing the arguments to use them in the Decor method
-            char dec = char.Parse(args[1]);
-            int n = int.Parse(args[2]);
-            Console.WriteLine(Decor(args[0], dec, n));
+            if (args.Length == 3)
+            {
+                //parsing the arguments to use them in the Decor method
+                char dec = char.Parse(args[1]);
+                int n = int.Parse(args[2]);
+                Console.WriteLine(Decor(args[0], dec, n));
+            }
+            else {
+                Console.WriteLine(Decor());
+            }
+
         }
 
         /// <summary>
@@ -27,15 +34,21 @@ namespace BetterDecorator
         /// <param name="dec"></param>
         /// <param name="n"></param>
         /// <returns></returns>
-        private static string Decor(string s, char dec, int n){
+        private static string Decor(string s, char dec, int n)
+        {
             string decor = "";
 
             //looping to create a string with the char n number of times
-            for (int i = 0; i < n; i++) {
+            for (int i = 0; i < n; i++)
+            {
                 decor += dec;
             }
 
-            return $"{decor} {s} {decor}"; 
+            return $"{decor} {s} {decor}";
+        }
+
+        private static string Decor(){
+            return Decor("User did not specify args!", '=', 3);
         }
     }
 }
